@@ -43,6 +43,21 @@ describe('User', () => {
     });
   });
 
+  describe('PUT /user/:id', () => {
+    it('should update an user', async () => {
+      const { _id } = await User.create(defaultUser);
+      const bodyReq = {
+        name: 'Luna Palhares',
+      };
+
+      const { body } = await request(app)
+        .put(`/user/${_id}`)
+        .send(bodyReq);
+
+      expect(body).toMatchObject(bodyReq);
+    });
+  });
+
   afterEach(async () => {
     await dropDb();
   });
