@@ -12,6 +12,15 @@ class UserController {
       res.status(400).send(error);
     }
   }
+
+  async index(req: Request, res: Response) {
+    try {
+      const users = await User.find();
+      return res.json(users);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  }
 }
 
 export = new UserController();
