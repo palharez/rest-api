@@ -2,6 +2,8 @@ import request from 'supertest';
 
 import app from '../../src/server';
 
+import { closeDb, dropDb } from '../utils';
+
 describe('User', () => {
   const defaultUser = {
     name: 'Eduardo Palhares',
@@ -19,5 +21,15 @@ describe('User', () => {
       expect(status).toBe(201);
       expect(body).toMatchObject(defaultUser);
     });
+  });
+
+  afterEach(async () => {
+    await dropDb();
+  });
+
+  afterAll(async done => {
+    await dropDb();
+    await closeDb();
+    done();
   });
 });
