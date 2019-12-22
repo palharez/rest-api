@@ -32,6 +32,20 @@ class UserController {
       return res.status(400).send(error);
     }
   }
+
+  async update(req: Request, res: Response) {
+    try {
+      const _id = req.params.id;
+
+      const user = await User.findByIdAndUpdate(_id, req.body, {
+        new: true,
+      });
+
+      return res.json(user);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  }
 }
 
 export = new UserController();
