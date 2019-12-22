@@ -1,8 +1,10 @@
 import request from 'supertest';
 
 import app from '../../src/server';
+import User from '../../src/app/models/User';
 
 import { closeDb, dropDb } from '../utils';
+import { userInfo } from 'os';
 
 describe('User', () => {
   const defaultUser = {
@@ -20,6 +22,16 @@ describe('User', () => {
 
       expect(status).toBe(201);
       expect(body).toMatchObject(defaultUser);
+    });
+  });
+
+  describe('GET /users', () => {
+    it('should response an users list', async () => {
+      await User.create(defaultUser);
+      const { body: users } = await request(app).get('/users');
+      const [user] = users;
+
+      expect(user).toMatchObject(defaultUser);
     });
   });
 
