@@ -4,7 +4,6 @@ import app from '../../src/server';
 import User from '../../src/app/models/User';
 
 import { closeDb, dropDb } from '../utils';
-import { userInfo } from 'os';
 
 describe('User', () => {
   const defaultUser = {
@@ -30,6 +29,15 @@ describe('User', () => {
       await User.create(defaultUser);
       const { body: users } = await request(app).get('/users');
       const [user] = users;
+
+      expect(user).toMatchObject(defaultUser);
+    });
+  });
+
+  describe('GET /user/:id', () => {
+    it('shoul response an user', async () => {
+      const { _id } = await User.create(defaultUser);
+      const { body: user } = await request(app).get(`/user/${_id}`);
 
       expect(user).toMatchObject(defaultUser);
     });
