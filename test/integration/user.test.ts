@@ -58,6 +58,15 @@ describe('User', () => {
     });
   });
 
+  describe('DELETE /user/:id', () => {
+    it('should delete an user', async () => {
+      const { _id } = await User.create(defaultUser);
+      const { status } = await request(app).delete(`/user/${_id}`);
+
+      expect(status).toBe(204);
+    });
+  });
+
   afterEach(async () => {
     await dropDb();
   });
