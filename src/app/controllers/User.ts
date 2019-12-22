@@ -46,6 +46,18 @@ class UserController {
       return res.status(400).send(error);
     }
   }
+
+  async destroy(req: Request, res: Response) {
+    try {
+      const _id = req.params.id;
+
+      await User.findByIdAndDelete(_id);
+
+      return res.status(204).send();
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  }
 }
 
 export = new UserController();
