@@ -15,5 +15,6 @@ routes.get('/hello', (req, res) => {
  */
 routes.post('/users', UserController.store);
 routes.get('/users', UserController.index);
+routes.get('/user/:id', UserController.show);
 
 export = routes;

@@ -21,6 +21,17 @@ class UserController {
       return res.status(400).send(error);
     }
   }
+
+  async show(req: Request, res: Response) {
+    try {
+      const _id = req.params.id;
+
+      const user = await User.findById(_id);
+      res.json(user);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  }
 }
 
 export = new UserController();
