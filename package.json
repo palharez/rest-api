@@ -1,5 +1,5 @@
 {
-  "name": "pokeapi",
+  "name": "rest-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "test": "jest"
   },
-  "author": "",
+  "author": "palharez <xeduardopalhares@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@types/morgan": "^1.7.37",
