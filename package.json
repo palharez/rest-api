@@ -11,8 +11,6 @@
   "author": "palharez <xeduardopalhares@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@types/morgan": "^1.7.37",
-    "@types/supertest": "^2.0.8",
     "body-parse": "^0.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -26,7 +24,9 @@
     "@types/express": "^4.17.1",
     "@types/jest": "^24.0.24",
     "@types/mongoose": "^5.5.28",
+    "@types/morgan": "^1.7.37",
     "@types/node": "^12.12.3",
+    "@types/supertest": "^2.0.8",
     "@typescript-eslint/eslint-plugin": "^2.12.0",
     "@typescript-eslint/parser": "^2.12.0",
     "eslint": "^6.8.0",
